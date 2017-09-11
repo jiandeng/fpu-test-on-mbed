@@ -1,0 +1,18 @@
+{
+    "target_overrides": {
+        "NRF52_DK": {
+            "target.macros_add": ["CONFIG_NFCT_PINS_AS_GPIOS"],
+            "target.macros_remove": ["CONFIG_GPIO_AS_PINRESET"],
+            "target.uart_hwfc": 0
+        },
+        "NUCLEO_L476RG": {
+            "target.macros_remove": ["USBHOST_OTHER"]
+        },
+        "NUCLEO_L152RE": {
+            "target.clock_source" : "USE_PLL_HSI"
+        },
+        "NUCLEO_F103RB": {
+            "target.clock_source" : "USE_PLL_HSI"
+        }
+    }
+}
