@@ -6,7 +6,12 @@
             "target.uart_hwfc": 0
         },
         "NUCLEO_L476RG": {
-            "target.macros_remove": ["USBHOST_OTHER"]
+            "target.macros_remove": ["USBHOST_OTHER"],
+            "target.clock_source" : "USE_PLL_HSI"
+        },
+        "NUCLEO_F411RE": {
+            "target.macros_remove": ["USB_STM_HAL", "USBHOST_OTHER"],
+            "target.clock_source" : "USE_PLL_HSI"
         },
         "NUCLEO_L152RE": {
             "target.clock_source" : "USE_PLL_HSI"
