@@ -333,7 +333,7 @@ int test_pfpu(int iterations) {
     volatile float a, b, c;
     volatile int i;
 
-    pc.printf("Testing float(+)...");
+    pc.printf("Testing float(+)...\n");
 
     a = 1.7;
     b = 2.2;
@@ -354,7 +354,7 @@ int test_pcpu(int iterations) {
     volatile int a, b, c;
     volatile int i;
 
-    pc.printf("Testing int(+)...");
+    pc.printf("Testing int(+)...\n");
     a = 1;
     b = 2;
     /* Determine the total loop time */
