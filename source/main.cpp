@@ -328,14 +328,61 @@ int test_std(int iterations) {
     return total_time;
 }
 
+int test_pfpu(int iterations) {
+    int total_time;
+    volatile float a, b, c;
+    volatile int i;
+
+    pc.printf("Testing float(+)...");
+
+    a = 1.7;
+    b = 2.2;
+    /* Determine the total loop time */
+    timer.reset();
+    timer.start();
+    for (i=0; i<iterations; i++) {
+        c=a+b;
+    }
+    total_time=timer.read_us();
+    timer.stop();
+
+    return total_time;
+}
+
+int test_pcpu(int iterations) {
+    int total_time;
+    volatile int a, b, c;
+    volatile int i;
+
+    pc.printf("Testing int(+)...");
+    a = 1;
+    b = 2;
+    /* Determine the total loop time */
+    timer.reset();
+    timer.start();
+    for (i=0; i<iterations; i++) {
+        c=a+b;
+    }
+    total_time=timer.read_us();
+    timer.stop();
+
+    return total_time;
+}
 int main() {
-    test_plus(ITERATIONS*10);
-    test_sub(ITERATIONS*10);
-    test_mul(ITERATIONS*10);
-    test_div(ITERATIONS*10);
-    test_sqrt(ITERATIONS);
-    test_sin(ITERATIONS);
-    test_exp(ITERATIONS);
-    test_log(ITERATIONS);
-    test_std(ITERATIONS/10);
+    // test_plus(ITERATIONS*10);
+    // test_sub(ITERATIONS*10);
+    // test_mul(ITERATIONS*10);
+    // test_div(ITERATIONS*10);
+    // test_sqrt(ITERATIONS);
+    // test_sin(ITERATIONS);
+    // test_exp(ITERATIONS);
+    // test_log(ITERATIONS);
+    // test_std(ITERATIONS/10);
+
+    test_pfpu(ITERATIONS*200);
+    // test_pcpu(ITERATIONS*500);
+
+    while(1) {
+        wait(1);
+    }
 }
